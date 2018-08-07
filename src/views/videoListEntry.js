@@ -6,8 +6,7 @@ var VideoListEntryView = Backbone.View.extend({
 
   onSelect: function(e) {
     // console.log('e exists', this.$el.index());
-    // app.currentVideoIndex = this.$el.index();
-    console.log('this.currentVideo exists', currentVideoIndex);
+    // console.log('this.currentVideo exists', currentVideoIndex);
     this.model.select();
   },
 

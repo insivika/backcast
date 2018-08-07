@@ -2,9 +2,16 @@ var VideoPlayerView = Backbone.View.extend({
   initialize: function() {
     // console.log('does a model exist?', this.model);
     // console.log('does a collection exist?', this.collection);
-    this.collection.on('select', this.render, this);
+    // this.collection.on('select', this.render, this);
+    // note to philipp: https://stackoverflow.com/questions/16823746/backbone-js-listento-vs-on
     this.model = this.collection.models[0];
+    this.collection.on('select', this.updateCurrentVideo, this);
     // this.model = this.collection.models[app view's current video index];
+  },
+
+  updateCurrentVideo: function(event) {
+    this.model = event;
+    this.render();
   },
 
   render: function() {

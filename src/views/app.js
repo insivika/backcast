@@ -2,11 +2,8 @@ var AppView = Backbone.View.extend({
 
   el: '#app',
 
-
   initialize: function() {
     this.videos = new Videos(window.exampleVideoData);
-    // this.currentVideo = index from videolist view;
-    this.currentVideoIndex = 3;
     this.render();
   },
 

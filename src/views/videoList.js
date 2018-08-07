@@ -1,6 +1,8 @@
 var VideoListView = Backbone.View.extend({
   initialize: function() {
     this.collection.on('sync', this.render, this);
+    // note to philipp: https://stackoverflow.com/questions/16823746/backbone-js-listento-vs-on
+    // this.collection.listenTo('sync', this.render, this);
   },
 
   template: templateURL('src/templates/videoList.html'),
