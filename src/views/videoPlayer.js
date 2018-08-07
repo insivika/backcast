@@ -4,6 +4,7 @@ var VideoPlayerView = Backbone.View.extend({
     // console.log('does a collection exist?', this.collection);
     this.collection.on('select', this.render, this);
     this.model = this.collection.models[0];
+    // this.model = this.collection.models[app view's current video index];
   },
 
   render: function() {
