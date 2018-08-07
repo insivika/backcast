@@ -2,37 +2,14 @@ var Videos = Backbone.Collection.extend({
 
   model: Video,
 
-  search: function(keyword) {
-    console.log('key', window.YOUTUBE_API_KEY);
-    // var dataObj = {
-    //   maxResults: '5',
-    //   part: 'snippet',
-    //   q: keyword,
-    //   key: window.YOUTUBE_API_KEY,
-    //   type: ''
-    // };
-    var dataObj = { data: {q: keyword} };
-    this.fetch(dataObj);
 
-  },
 
-  fetch: function(dataObj) {
-    $.ajax({
-      method: 'GET',
-      url: 'https://www.googleapis.com/youtube/v3/search',
-      dataObj,
-      success: function(data) {
-        console.log('fetching');
+  // PHILIPPP!!!!! OMGGG!!! http://backbonejs.org/#API-integration
+  // http://backbonejs.org/#Collection-fetch
 
-        console.log(data);
+  // http://backbonejs.org/#Collection-parse
+  // http://backbonejs.org/#Sync
 
-        console.log('The data has been fetched');
-      },
-      error: function(data) {
-        console.log('Unable to fetch data', data);
-      }
-
-    });
-  }
+  // https://stackoverflow.com/questions/38796670/backbone-js-setting-header-for-get-request
 
 });
