@@ -1,16 +1,13 @@
 var VideoListView = Backbone.View.extend({
-  // initialize: function() {
-  //   this.collection.on('sync', this.render, this);
-  // },
-  // el: '.video-list',
+  initialize: function() {
+    this.collection.on('sync', this.render, this);
+  },
 
   template: templateURL('src/templates/videoList.html'),
 
   render: function() {
     this.$el.children().detach();
     this.$el.html(this.template());
-
-
 
     // console.log('does this exist?', this.$('.video-list'));
     this.$('.video-list').html(
@@ -21,8 +18,6 @@ var VideoListView = Backbone.View.extend({
 
     return this;
   },
-
-
 
 });
 
