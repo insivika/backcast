@@ -11,10 +11,11 @@ var VideoListEntryView = Backbone.View.extend({
   },
 
   render: function() {
+    console.log('does this.model exist?', this.model);
     this.$el.html(this.template(this.model.attributes));
 
-    // console.log('attr', this.model.attributes);
-    // console.log('this template', this.model.attributes);
+    // console.log('el', this.el);
+    // console.log('$el', this.$el);
     return this.el;
   },
 
