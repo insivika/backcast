@@ -11,7 +11,7 @@ var VideoListEntryView = Backbone.View.extend({
   },
 
   render: function() {
-    console.log('does this.model exist?', this.model);
+    // console.log('does this.model exist?', this.model);
     this.$el.html(this.template(this.model.attributes));
 
     // console.log('el', this.el);

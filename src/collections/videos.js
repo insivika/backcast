@@ -6,14 +6,15 @@ var Videos = Backbone.Collection.extend({
 
   search: function(keywords) {
     this.fetch(
-      {data: {
-        q: keywords,
-        maxResults: 5,
-        key: window.YOUTUBE_API_KEY,
-        part: 'snippet',
-        videoEmbeddable: true,
-        type: 'video'
-      },
+      {
+        data: {
+          q: keywords,
+          maxResults: 5,
+          key: window.YOUTUBE_API_KEY,
+          part: 'snippet',
+          videoEmbeddable: true,
+          type: 'video'
+        }
       }
     );
   },

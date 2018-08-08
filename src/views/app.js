@@ -4,8 +4,15 @@ var AppView = Backbone.View.extend({
 
   initialize: function() {
     this.videos = new Videos();
-    this.videos.search('philipp is awesome');
+    this.videos.on('sync', this.setDefault, this);
+    this.videos.search('surfing dog');
     this.render();
+  },
+
+  setDefault: function() {
+    console.log('this vid exists', this.videos);
+    this.videos.models[0].select();
+    // this.collection.models[0].select()
   },
 
   render: function() {
