@@ -1,17 +1,36 @@
 var SearchView = Backbone.View.extend({
-  events: {
-    'click button': 'clickSearch',
-    'keyup input': 'onKeyUp'
+
+  initialize: function() {
+
+    this.debouncedSearch = _.debounce(this.justSearch, 500);
+
   },
 
-  onKeyUp: function(e) {
-    if (e.keyCode === 13) {
-      this.clickSearch();
-    }
+  events: {
+    'keyup input': 'onKeyUp',
+    'click button': 'clickSearch'
+  },
+
+  justSearch: function() {
+    this.collection.search(this.$('input').val());
   },
 
   clickSearch: function() {
-    this.collection.search(this.$('input').val());
+    this.justSearch();
+    this.clearInput();
+  },
+
+  clearInput: function() {
+    this.$('input').val('');
+  },
+
+  onKeyUp: function(e) {
+    if (e.keyCode !== 13) {
+      this.debouncedSearch();
+    } else {
+      this.justSearch();
+      this.clearInput();
+    }
   },
 
   render: function() {
